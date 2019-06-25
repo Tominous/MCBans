@@ -94,11 +94,11 @@ public class MCBans extends JavaPlugin {
         log = new ActionLog(this); // setup logger
 
         // check online-mode, Do NOT remove this check!
-        /*if (!this.getServer().getOnlineMode()) {
+        if (!this.getServer().getOnlineMode()) {
             log.severe("This server is not in online mode!");
             pm.disablePlugin(this);
             return;
-        }*/
+        }
         //load sync configuration
         syncIni = new File(this.getDataFolder(),"sync.ini");
         if(syncIni.exists()){
@@ -154,9 +154,9 @@ public class MCBans extends JavaPlugin {
         rbHandler.setupHandler();
 
         // hookup integration plugin
-        //checkPlugin(true);
-        //if (ncpEnabled) log.info("NoCheatPlus plugin found! Enabled this integration!");
-        //if (acEnabled) log.info("AntiCheat plugin found! Enabled this integration!");
+        checkPlugin(true);
+        if (ncpEnabled) log.info("NoCheatPlus plugin found! Enabled this integration!");
+        if (acEnabled) log.info("AntiCheat plugin found! Enabled this integration!");
 
         final PluginDescriptionFile pdfFile = this.getDescription();
         log.info(pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!");
@@ -207,19 +207,19 @@ public class MCBans extends JavaPlugin {
         }
     }
 
-    /*public void checkPlugin(final boolean startup){
+    public void checkPlugin(final boolean startup){
         // Check NoCheatPlus
-        //Plugin checkNCP = getServer().getPluginManager().getPlugin("NoCheatPlus");
+        Plugin checkNCP = getServer().getPluginManager().getPlugin("NoCheatPlus");
         this.ncpEnabled = (checkNCP != null && checkNCP instanceof NoCheatPlus);
         // Check AntiCheat
-        //Plugin checkAC = getServer().getPluginManager().getPlugin("AntiCheat");
+        Plugin checkAC = getServer().getPluginManager().getPlugin("AntiCheat");
         this.acEnabled = (checkAC != null && checkAC instanceof Anticheat);
 
         if (!startup){
             if (ncpEnabled) ncpEnabled = (checkNCP.isEnabled());
             if (acEnabled) acEnabled = (checkAC.isEnabled());
         }
-    }*/
+    }
 
     public boolean isEnabledNCP(){
         return this.ncpEnabled;
@@ -238,14 +238,14 @@ public class MCBans extends JavaPlugin {
     }
     public static Player getPlayer(Plugin plugin, String UUID){
     	UUID = UUID.replaceAll("(?ism)([a-z0-9]{8})([a-z0-9]{4})([a-z0-9]{4})([a-z0-9]{4})([a-z0-9]{12})", "$1-$2-$3-$4-$5");
-    	/*for(Player p : plugin.getServer().getOnlinePlayers()){
+    	for(Player p : plugin.getServer().getOnlinePlayers()){
     		if(p.getUniqueId().toString().equals(UUID)){
     			return p;
     		}
-    	}*/
+    	}
     	return null;
     }
-    /*public void act(String act, String uuid){
+    public void act(String act, String uuid){
     	uuid = uuid.replaceAll("(?ism)([a-z0-9]{8})([a-z0-9]{4})([a-z0-9]{4})([a-z0-9]{4})([a-z0-9]{12})", "$1-$2-$3-$4-$5");
     	if(uuid.matches("([a-z0-9]{8})-([a-z0-9]{4})-([a-z0-9]{4})-([a-z0-9]{4})-([a-z0-9]{12})")){
 	    	OfflinePlayer d = getServer().getOfflinePlayer(UUID.fromString(uuid));
@@ -261,7 +261,7 @@ public class MCBans extends JavaPlugin {
 		        }
 	    	}
     	}
-    }*/
+    }
     public ConfigurationManager getConfigs(){
         return this.config;
     }
