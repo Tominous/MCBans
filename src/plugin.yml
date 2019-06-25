@@ -4,8 +4,8 @@ main: com.mcbans.firestar.mcbans.MCBans
 version: 4.4.3b
 description: A global banning solution
 website: http://mcbans.com/
-softdepend: [LogBlock, HawkEye, CoreProtect, Vault, PermissionsEx]
-author: Firestar, Syamn, Draco
+softdepend: [LogBlock, HawkEye, CoreProtect, Vault, PermissionsEx, LuckPerms]
+author: Firestar, Syamn, Draco, Caspar, MiniCaspar
 commands:
   kick:
     description: kicks a user
