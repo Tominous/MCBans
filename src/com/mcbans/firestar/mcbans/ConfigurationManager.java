@@ -19,7 +19,7 @@ public class ConfigurationManager {
     private final MCBans plugin;
     private final ActionLog log;
 
-    //private YamlConfiguration conf;
+    private YamlConfiguration conf;
     private FileConfiguration conf;
     private File pluginDir;
     
@@ -63,7 +63,7 @@ public class ConfigurationManager {
                 log.severe("Please copy your API key to the configuration file.");
                 log.severe("Don't have an API key? Go to: http://my.mcbans.com/servers/");
                 //plugin.getPluginLoader().disablePlugin(plugin); // Don't disable plugin
-                //return;
+                return;
             }else{
                 log.severe("MCBans detected a missing or invalid API Key! Please check config.yml!");
             }
@@ -107,7 +107,7 @@ public class ConfigurationManager {
 
             // force copy config.yml and languages
             FileStructure.extractResource("/config.yml", pluginDir, true, false);
-            //Language.extractLanguageFile(true);
+            Language.extractLanguageFile(true);
 
             plugin.reloadConfig();
             conf = plugin.getConfig();
@@ -191,11 +191,11 @@ public class ConfigurationManager {
     public int getCallBackInterval(){
         return conf.getInt("callBackInterval", 15);
     }
-    /*
+    
     public boolean isSendPreviousBans(){
         return conf.getBoolean("sendPreviousBans", true);
     }
-    */
+    
     public int getTimeoutInSec(){
         return conf.getInt("timeout", 10);
     }
