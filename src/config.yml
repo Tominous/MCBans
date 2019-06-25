@@ -23,7 +23,7 @@ language: default
 # permission:
 #   Choose permission controller: Vault, PermissionsEx, SuperPerms (default), OPs
 #   DEFAULT: SuperPerms
-permission: SuperPerms
+permission: LuckPErms
 
 # defaultLocal:
 #   Default reason for users being locally banned from the server, if no reason is provided.
@@ -48,12 +48,12 @@ defaultKick: "You have been kicked!"
 # isDebug:
 #   Enable additional debug messages throughout the plugin
 #   DEFAULT: false
-isDebug: false
+isDebug: true
 
 # logEnable:
 #   Enable logging MCBans actions and information to a file
 #   DEFAULT: false
-logEnable: false
+logEnable: true
 
 # logFile:
 #   Location and name of the file to log MCBans plugin data into
@@ -70,12 +70,12 @@ logFile: "plugins/MCBans/actions.log"
 #   Limits the maximum number of alt accounts a user may have before
 #   being denied access to the server.
 #   DEFAULT: false
-enableMaxAlts: false
+enableMaxAlts: true
 
 # maxAlts:
 #   Maximum number of alternate accounts allowed before denying user
 #   DEFAULT: 2
-maxAlts: 2
+maxAlts: 3
 
 #########################################################
 # Block logger plugin integration
@@ -117,7 +117,7 @@ autoSyncInterval: 5
 # onJoinMCBansMessage:
 #   Display "Server protected by MCBans.com" advertisement notice to users upon connection.
 #   DEFAULT: false, RECOMMENDED: true
-onJoinMCBansMessage: false
+onJoinMCBansMessage: true
 
 # sendDetailPrevBansOnJoin:
 #   Show detail previous bans information (banned server, reason, issued by) on player join.
